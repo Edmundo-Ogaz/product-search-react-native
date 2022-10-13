@@ -1,0 +1,14 @@
+[
+  {
+    "code": "1",
+    "name": "Pan",
+    "price": 1950,
+    "brand": "Melao's y Manjares",
+    "location": {
+      "latitude": -33.44379611303666,
+      "longitude": -70.63469012758674
+    },
+    "quality": 5,
+    "dateAt": "2022-10-13 16:00:00"
+  }
+]
