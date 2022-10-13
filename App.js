@@ -15,9 +15,17 @@ const App = () => {
   const [input, onChangeInput] = React.useState("");
   const [text, onChangeText] = React.useState("");
 
-  let search = async () => {
-    console.log('search: ' + input);
-    const response = products.filter(product => product.name === input);
+  let search = async val => {
+    onChangeInput(val);
+
+    if (!val) {
+      onChangeText('');
+      return;
+    }
+
+    const response = products.filter(
+      product => product.name.substring(0, val.length) === val,
+    );
     onChangeText(JSON.stringify(response));
   }
 
@@ -29,10 +37,9 @@ const App = () => {
           <TextInput
             style={[styles.input, { height: Platform.OS == 'android' ? 40 : 20 }]}
             value={input}
-            onChangeText={text => onChangeInput(text)}
+            onChangeText={text => search(text)}
             placeholder='Search'
             keyboardType='web-search'
-            onSubmitEditing={() => search()}
           />
         </View>
         <View>
